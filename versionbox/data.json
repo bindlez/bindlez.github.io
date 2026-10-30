@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-30T22:52:45.871623+00:00",
+  "generated_at": "2026-10-30T23:05:15.937573+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -8,6 +8,15 @@
       "description": "Fairy skill odds, strategies and simulations",
       "repo": "bindlez/fairycodex",
       "versions": [
+        {
+          "id": "d44d613669e0",
+          "label": "d44d613669e0",
+          "sha": "d44d613669e0b62a25cc7fa3196c06ddb7ab6d69",
+          "url": "versionbox/snapshots/fairycodex/d44d613669e0/index.html",
+          "date": "2026-10-30T19:04:45-04:00",
+          "message": "release: V31 complete conditional odds pie charts in Odds Lab and sidebar",
+          "repo": "bindlez/fairycodex"
+        },
         {
           "id": "f70e60e4b5a6",
           "label": "V30 · Release Candidate",
@@ -93,7 +102,7 @@
       "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
     },
     "fairycodex": {
-      "head": "f70e60e4b5a68d1c948f20685879c9dbf0e5972e"
+      "head": "3256edf0138a58ce11265156f5e147c1525badfb"
     }
   }
 }
