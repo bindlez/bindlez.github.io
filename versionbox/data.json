@@ -1,13 +1,40 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-30T23:20:42.816695+00:00",
+  "generated_at": "2026-10-30T23:38:00.698897+00:00",
   "projects": [
     {
       "id": "fairycodex",
       "name": "FairyCodex",
-      "description": "Fairy skill odds, simulations, Treasure Atlas and Imperial Box Studio",
+      "description": "Fairy odds, Treasure Atlas, Imperial Intelligence and Live Intel market alerts",
       "repo": "bindlez/fairycodex",
       "versions": [
+        {
+          "id": "2d1ffb43ebcc",
+          "label": "V35",
+          "sha": "2d1ffb43ebcc085059bec66da04be28bd6be4fdd",
+          "url": "versionbox/snapshots/fairycodex/2d1ffb43ebcc/index.html",
+          "date": "2026-10-30T19:37:18-04:00",
+          "message": "release: V36.1 Live Intel and shared Arsha market adapter for Imperial Boxes and alerts",
+          "repo": "bindlez/fairycodex"
+        },
+        {
+          "id": "e94ee9d42273",
+          "label": "V35",
+          "sha": "e94ee9d42273893d9fdc449fd6c987ed5644eb86",
+          "url": "versionbox/snapshots/fairycodex/e94ee9d42273/index.html",
+          "date": "2026-10-30T19:29:06-04:00",
+          "message": "docs: identify imperial box packing suggestions as unverified; keep V35 app intact",
+          "repo": "bindlez/fairycodex"
+        },
+        {
+          "id": "f51da4c60092",
+          "label": "V33",
+          "sha": "f51da4c600925fa0141478bd171fb6f45b67f916",
+          "url": "versionbox/snapshots/fairycodex/f51da4c60092/index.html",
+          "date": "2026-10-30T19:28:03-04:00",
+          "message": "release: FairyCodex V35 imperial recipe explorer and Arsha price adapter",
+          "repo": "bindlez/fairycodex"
+        },
         {
           "id": "68dcd97040c4",
           "label": "V33",
@@ -129,7 +156,7 @@
       "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
     },
     "fairycodex": {
-      "head": "68dcd97040c449f9b13735f0dcac3b5cd6c6fdef"
+      "head": "6b6a83af07a1d2c12a4af2ef3c7632753d11216b"
     }
   }
 }
