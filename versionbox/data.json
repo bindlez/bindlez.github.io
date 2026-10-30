@@ -1,11 +1,88 @@
 {
   "schema": 1,
-  "generated_at": null,
+  "generated_at": "2026-10-30T22:46:31.356388+00:00",
   "projects": [
-    {"id":"fairycodex","name":"FairyCodex","description":"Fairy skill odds, strategies and simulations","repo":"bindlez/fairycodex","versions":[{"id":"v22","label":"v22 · Graph Studio","url":"fairycodex_v22_site.html","legacy":true},{"id":"v18","label":"v18 · Graph Studio","url":"fairycodex_v18_graph_studio.html","legacy":true}]},
-    {"id":"bdo-market","name":"BDO Market Intelligence","description":"Marketplace explorer, alerts and watchlists","repo":"bindlez/bdo-vision","versions":[]},
-    {"id":"bdo-vision","name":"BDO Vision","description":"OCR companion and browser previews","repo":"bindlez/bdo-vision","versions":[{"id":"original","label":"Original interactive demo","url":"bdo-vision-demo.html","legacy":true}]},
-    {"id":"bdo-crafting","name":"BDO Crafting Studio","description":"Recipe planning and simulated crafting","versions":[{"id":"original","label":"Crafting Studio demo","url":"bdo-vision-crafting-demo.html","legacy":true}]}
+    {
+      "id": "fairycodex",
+      "name": "FairyCodex",
+      "description": "Fairy skill odds, strategies and simulations",
+      "repo": "bindlez/fairycodex",
+      "versions": [
+        {
+          "id": "v22",
+          "label": "v22 · Graph Studio",
+          "url": "fairycodex_v22_site.html",
+          "legacy": true
+        },
+        {
+          "id": "v18",
+          "label": "v18 · Graph Studio",
+          "url": "fairycodex_v18_graph_studio.html",
+          "legacy": true
+        }
+      ],
+      "sync_note": "fatal: Remote branch main not found in upstream origin\n"
+    },
+    {
+      "id": "bdo-market",
+      "name": "BDO Market Intelligence",
+      "description": "Marketplace explorer, alerts and watchlists",
+      "repo": "bindlez/bdo-vision",
+      "versions": [
+        {
+          "id": "bde7747f2a67",
+          "label": "bde7747f2a67",
+          "sha": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551",
+          "url": "versionbox/snapshots/bdo-market/bde7747f2a67/index.html",
+          "date": "2026-10-30T17:16:27-04:00",
+          "message": "Resolve tradable recipe IDs despite event namesakes and prepare rc.2",
+          "repo": "bindlez/bdo-vision"
+        }
+      ]
+    },
+    {
+      "id": "bdo-vision",
+      "name": "BDO Vision",
+      "description": "OCR companion and browser previews",
+      "repo": "bindlez/bdo-vision",
+      "versions": [
+        {
+          "id": "bde7747f2a67",
+          "label": "bde7747f2a67",
+          "sha": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551",
+          "url": "versionbox/snapshots/bdo-vision/bde7747f2a67/index.html",
+          "date": "2026-10-30T17:16:27-04:00",
+          "message": "Resolve tradable recipe IDs despite event namesakes and prepare rc.2",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "original",
+          "label": "Original interactive demo",
+          "url": "bdo-vision-demo.html",
+          "legacy": true
+        }
+      ]
+    },
+    {
+      "id": "bdo-crafting",
+      "name": "BDO Crafting Studio",
+      "description": "Recipe planning and simulated crafting",
+      "versions": [
+        {
+          "id": "original",
+          "label": "Crafting Studio demo",
+          "url": "bdo-vision-crafting-demo.html",
+          "legacy": true
+        }
+      ]
+    }
   ],
-  "tracked": {}
+  "tracked": {
+    "bdo-market": {
+      "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
+    },
+    "bdo-vision": {
+      "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
+    }
+  }
 }
