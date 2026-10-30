@@ -9,9 +9,18 @@
       "branch": "main",
       "publish_path": "index.html",
       "legacy": [
-        {"id": "v22", "label": "v22 · Graph Studio", "url": "fairycodex_v22_site.html"},
-        {"id": "v18", "label": "v18 · Graph Studio", "url": "fairycodex_v18_graph_studio.html"}
-      ]
+        {
+          "id": "v22",
+          "label": "v22 · Graph Studio",
+          "url": "fairycodex_v22_site.html"
+        },
+        {
+          "id": "v18",
+          "label": "v18 · Graph Studio",
+          "url": "fairycodex_v18_graph_studio.html"
+        }
+      ],
+      "version_file": "VERSION"
     },
     {
       "id": "bdo-market",
@@ -29,7 +38,11 @@
       "branch": "main",
       "publish_path": "DEMO.html",
       "legacy": [
-        {"id": "original", "label": "Original interactive demo", "url": "bdo-vision-demo.html"}
+        {
+          "id": "original",
+          "label": "Original interactive demo",
+          "url": "bdo-vision-demo.html"
+        }
       ]
     },
     {
@@ -37,7 +50,11 @@
       "name": "BDO Crafting Studio",
       "description": "Recipe planning and simulated crafting",
       "legacy": [
-        {"id": "original", "label": "Crafting Studio demo", "url": "bdo-vision-crafting-demo.html"}
+        {
+          "id": "original",
+          "label": "Crafting Studio demo",
+          "url": "bdo-vision-crafting-demo.html"
+        }
       ]
     }
   ]
