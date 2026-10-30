@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-30T22:46:31.356388+00:00",
+  "generated_at": "2026-10-30T22:52:45.871623+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -8,6 +8,15 @@
       "description": "Fairy skill odds, strategies and simulations",
       "repo": "bindlez/fairycodex",
       "versions": [
+        {
+          "id": "f70e60e4b5a6",
+          "label": "f70e60e4b5a6",
+          "sha": "f70e60e4b5a68d1c948f20685879c9dbf0e5972e",
+          "url": "versionbox/snapshots/fairycodex/f70e60e4b5a6/index.html",
+          "date": "2026-10-30T18:52:16-04:00",
+          "message": "fix: restore complete V30 HTML after transfer truncation",
+          "repo": "bindlez/fairycodex"
+        },
         {
           "id": "v22",
           "label": "v22 · Graph Studio",
@@ -20,8 +29,7 @@
           "url": "fairycodex_v18_graph_studio.html",
           "legacy": true
         }
-      ],
-      "sync_note": "fatal: Remote branch main not found in upstream origin\n"
+      ]
     },
     {
       "id": "bdo-market",
@@ -83,6 +91,9 @@
     },
     "bdo-vision": {
       "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
+    },
+    "fairycodex": {
+      "head": "f70e60e4b5a68d1c948f20685879c9dbf0e5972e"
     }
   }
 }
