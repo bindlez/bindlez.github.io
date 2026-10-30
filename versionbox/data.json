@@ -10,11 +10,11 @@
       "versions": [
         {
           "id": "d44d613669e0",
-          "label": "d44d613669e0",
+          "label": "V31 · Complete Odds Pie",
           "sha": "d44d613669e0b62a25cc7fa3196c06ddb7ab6d69",
           "url": "versionbox/snapshots/fairycodex/d44d613669e0/index.html",
           "date": "2026-10-30T19:04:45-04:00",
-          "message": "release: V31 complete conditional odds pie charts in Odds Lab and sidebar",
+          "message": "V31: interactive complete conditional skill-and-rank probability pie charts in Odds Lab and Target Difficulty",
           "repo": "bindlez/fairycodex"
         },
         {
