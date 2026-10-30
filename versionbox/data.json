@@ -10,11 +10,11 @@
       "versions": [
         {
           "id": "f70e60e4b5a6",
-          "label": "f70e60e4b5a6",
+          "label": "V30 · Release Candidate",
           "sha": "f70e60e4b5a68d1c948f20685879c9dbf0e5972e",
           "url": "versionbox/snapshots/fairycodex/f70e60e4b5a6/index.html",
           "date": "2026-10-30T18:52:16-04:00",
-          "message": "fix: restore complete V30 HTML after transfer truncation",
+          "message": "FairyCodex V30 — Fairy Oracle, Simulation Observatory, Breakpoint Lab & Treasure Atlas",
           "repo": "bindlez/fairycodex"
         },
         {
