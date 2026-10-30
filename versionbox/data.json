@@ -1,13 +1,40 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-30T23:05:15.937573+00:00",
+  "generated_at": "2026-10-30T23:20:42.816695+00:00",
   "projects": [
     {
       "id": "fairycodex",
       "name": "FairyCodex",
-      "description": "Fairy skill odds, strategies and simulations",
+      "description": "Fairy skill odds, simulations, Treasure Atlas and Imperial Box Studio",
       "repo": "bindlez/fairycodex",
       "versions": [
+        {
+          "id": "68dcd97040c4",
+          "label": "V33",
+          "sha": "68dcd97040c449f9b13735f0dcac3b5cd6c6fdef",
+          "url": "versionbox/snapshots/fairycodex/68dcd97040c4/index.html",
+          "date": "2026-10-30T19:20:12-04:00",
+          "message": "fix: correct imperial payout mastery scaling against 250% listed price",
+          "repo": "bindlez/fairycodex"
+        },
+        {
+          "id": "95f59c03102c",
+          "label": "V33",
+          "sha": "95f59c03102cac9abe8c77f35d10d60f3e867a62",
+          "url": "versionbox/snapshots/fairycodex/95f59c03102c/index.html",
+          "date": "2026-10-30T19:19:19-04:00",
+          "message": "release: V33 Imperial Box Studio and Target Hit Forecast updates",
+          "repo": "bindlez/fairycodex"
+        },
+        {
+          "id": "753b603bc339",
+          "label": "V31",
+          "sha": "753b603bc339205a7ef80ee30b2e8b01b0168853",
+          "url": "versionbox/snapshots/fairycodex/753b603bc339/index.html",
+          "date": "2026-10-30T19:10:31-04:00",
+          "message": "perf: V32 lean Treasure Atlas navigation; preserve Fairy and simulations",
+          "repo": "bindlez/fairycodex"
+        },
         {
           "id": "d44d613669e0",
           "label": "V31 · Complete Odds Pie",
@@ -102,7 +129,7 @@
       "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
     },
     "fairycodex": {
-      "head": "3256edf0138a58ce11265156f5e147c1525badfb"
+      "head": "68dcd97040c449f9b13735f0dcac3b5cd6c6fdef"
     }
   }
 }
