@@ -4,7 +4,7 @@
     {
       "id": "fairycodex",
       "name": "FairyCodex",
-      "description": "Fairy skill odds, simulations, Treasure Atlas and Imperial Box Studio",
+      "description": "Fairy odds, Treasure Atlas, Imperial Intelligence and Live Intel market alerts",
       "repo": "bindlez/fairycodex",
       "branch": "main",
       "publish_path": "index.html",
