@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-30T23:38:00.698897+00:00",
+  "generated_at": "2026-10-31T01:57:26.599877+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -8,6 +8,33 @@
       "description": "Fairy odds, Treasure Atlas, Imperial Intelligence and Live Intel market alerts",
       "repo": "bindlez/fairycodex",
       "versions": [
+        {
+          "id": "d87eea1c5847",
+          "label": "V38",
+          "sha": "d87eea1c5847627302c88d4c8502ea352eb0bdd3",
+          "url": "versionbox/snapshots/fairycodex/d87eea1c5847/index.html",
+          "date": "2026-10-30T21:46:44-04:00",
+          "message": "rollback: restore stable V36.1 production UI; park gear experiments",
+          "repo": "bindlez/fairycodex"
+        },
+        {
+          "id": "cc8765ac77d8",
+          "label": "V37",
+          "sha": "cc8765ac77d8e04a475c2582fb0542fd55d09545",
+          "url": "versionbox/snapshots/fairycodex/cc8765ac77d8/index.html",
+          "date": "2026-10-30T21:34:29-04:00",
+          "message": "release: V38 equipment database and Worker/Arsha resilient shared market fetch",
+          "repo": "bindlez/fairycodex"
+        },
+        {
+          "id": "813cac8ca30c",
+          "label": "V36.1",
+          "sha": "813cac8ca30c28a06f6a0e01804f3472f300db11",
+          "url": "versionbox/snapshots/fairycodex/813cac8ca30c/index.html",
+          "date": "2026-10-30T21:27:15-04:00",
+          "message": "release: FairyCodex V37 Gear Progression Studio with market-linked comparisons",
+          "repo": "bindlez/fairycodex"
+        },
         {
           "id": "2d1ffb43ebcc",
           "label": "V35",
@@ -156,7 +183,7 @@
       "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
     },
     "fairycodex": {
-      "head": "6b6a83af07a1d2c12a4af2ef3c7632753d11216b"
+      "head": "99633c300ea69e06d111fdd54d9b493ab0a01bd2"
     }
   }
 }
