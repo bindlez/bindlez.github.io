@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-03T16:46:53.334066+00:00",
+  "generated_at": "2026-11-03T22:10:47.407203+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -128,6 +128,51 @@
       "repo": "bindlez/bdo-vision",
       "versions": [
         {
+          "id": "623ee5ca8f7f",
+          "label": "623ee5ca8f7f",
+          "sha": "623ee5ca8f7fbd9d8394389f86d87e4775cdc2a0",
+          "url": "versionbox/snapshots/bdo-market/623ee5ca8f7f/index.html",
+          "date": "2026-11-03T16:28:49-05:00",
+          "message": "Lead with production maps and timelines; configure tool, stock and hybrid run limits",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "44692c580064",
+          "label": "44692c580064",
+          "sha": "44692c58006422b42a99ba0ac25f013ba68da32a",
+          "url": "versionbox/snapshots/bdo-market/44692c580064/index.html",
+          "date": "2026-11-03T15:01:23-05:00",
+          "message": "Simulate whole production lines from isolated starting stock and separate Crafting workspaces",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "e3d4a50addf1",
+          "label": "e3d4a50addf1",
+          "sha": "e3d4a50addf1a53f5fc4da194efc577aa1372c25",
+          "url": "versionbox/snapshots/bdo-market/e3d4a50addf1/index.html",
+          "date": "2026-11-03T14:12:30-05:00",
+          "message": "Connect full recipe production maps with linked ingredient packing",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "05a632bcf9c3",
+          "label": "05a632bcf9c3",
+          "sha": "05a632bcf9c3212851d96fce076acff6c04b4463",
+          "url": "versionbox/snapshots/bdo-market/05a632bcf9c3/index.html",
+          "date": "2026-11-03T13:50:38-05:00",
+          "message": "Plan weight-limited recipe loads and downstream production routes",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "84dd25c32da8",
+          "label": "84dd25c32da8",
+          "sha": "84dd25c32da838bcf4c8b7aaef4d72fe2209a26e",
+          "url": "versionbox/snapshots/bdo-market/84dd25c32da8/index.html",
+          "date": "2026-11-03T12:55:32-05:00",
+          "message": "Detect current craft automatically and model captured rates and tool forecasts",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
           "id": "ef99bf119bb4",
           "label": "ef99bf119bb4",
           "sha": "ef99bf119bb4ff66018fb75f3a8b6f8e4d655ced",
@@ -164,15 +209,6 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "df03607c9c42",
-          "label": "df03607c9c42",
-          "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
-          "url": "versionbox/snapshots/bdo-market/df03607c9c42/index.html",
-          "date": "2026-11-02T22:42:20-05:00",
-          "message": "Add stock-aware Imperial recommendations, CP daily totals and lazy profit analysis",
-          "repo": "bindlez/bdo-vision"
-        },
-        {
           "id": "f535c955ef5a",
           "label": "f535c955ef5a",
           "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
@@ -182,12 +218,12 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "54a8b9ff0538",
-          "label": "54a8b9ff0538",
-          "sha": "54a8b9ff053847c7dd9d674c387650078dea12e7",
-          "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
-          "date": "2026-11-02T22:42:19-05:00",
-          "message": "Add lightweight Imperial buy and craft quick picks",
+          "id": "df03607c9c42",
+          "label": "df03607c9c42",
+          "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
+          "url": "versionbox/snapshots/bdo-market/df03607c9c42/index.html",
+          "date": "2026-11-02T22:42:20-05:00",
+          "message": "Add stock-aware Imperial recommendations, CP daily totals and lazy profit analysis",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -197,6 +233,15 @@
           "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
           "date": "2026-11-02T22:42:19-05:00",
           "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "54a8b9ff0538",
+          "label": "54a8b9ff0538",
+          "sha": "54a8b9ff053847c7dd9d674c387650078dea12e7",
+          "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
+          "date": "2026-11-02T22:42:19-05:00",
+          "message": "Add lightweight Imperial buy and craft quick picks",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -348,10 +393,10 @@
   ],
   "tracked": {
     "bdo-market": {
-      "head": "ef99bf119bb4ff66018fb75f3a8b6f8e4d655ced"
+      "head": "623ee5ca8f7fbd9d8394389f86d87e4775cdc2a0"
     },
     "bdo-vision": {
-      "head": "ef99bf119bb4ff66018fb75f3a8b6f8e4d655ced"
+      "head": "623ee5ca8f7fbd9d8394389f86d87e4775cdc2a0"
     },
     "fairycodex": {
       "head": "99633c300ea69e06d111fdd54d9b493ab0a01bd2"
