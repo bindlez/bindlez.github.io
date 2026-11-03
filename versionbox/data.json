@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-10-31T01:57:26.599877+00:00",
+  "generated_at": "2026-11-03T01:47:16.172926+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -128,6 +128,105 @@
       "repo": "bindlez/bdo-vision",
       "versions": [
         {
+          "id": "85715b48a240",
+          "label": "85715b48a240",
+          "sha": "85715b48a2402a558a05f3f1d93c4a057f262391",
+          "url": "versionbox/snapshots/bdo-market/85715b48a240/index.html",
+          "date": "2026-11-02T17:48:18-05:00",
+          "message": "Build real crafting intelligence with market-first CP and linked project paper",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "62293eae0dd4",
+          "label": "62293eae0dd4",
+          "sha": "62293eae0dd47e54bb024d347500e77dcc70b2de",
+          "url": "versionbox/snapshots/bdo-market/62293eae0dd4/index.html",
+          "date": "2026-11-02T16:45:25-05:00",
+          "message": "Expand CP forecasts and harden bounded tool and quest acquisition",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "3e0e1aac6b1d",
+          "label": "3e0e1aac6b1d",
+          "sha": "3e0e1aac6b1da229f5d715f762f7143da8bc588b",
+          "url": "versionbox/snapshots/bdo-market/3e0e1aac6b1d/index.html",
+          "date": "2026-11-02T14:56:48-05:00",
+          "message": "Add CP Intelligence, byproduct simulations and frugal one-shot HUD reader (1.13.0-rc.11)",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "a47d000b8e8a",
+          "label": "a47d000b8e8a",
+          "sha": "a47d000b8e8afe65d4bdb24c812ac59aff1b6dc4",
+          "url": "versionbox/snapshots/bdo-market/a47d000b8e8a/index.html",
+          "date": "2026-11-02T13:43:03-05:00",
+          "message": "Add Big Drops trophy room, value tiers, treasure recognition and personal heat (1.13.0-rc.10)",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "0ae765b59d5b",
+          "label": "0ae765b59d5b",
+          "sha": "0ae765b59d5b72983cd17d622f8ac909a5b6f92a",
+          "url": "versionbox/snapshots/bdo-market/0ae765b59d5b/index.html",
+          "date": "2026-11-02T10:46:15-05:00",
+          "message": "Recognize completed guild widgets and recover above-button tools (1.13.0-rc.8)",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "fec371a3dcb8",
+          "label": "fec371a3dcb8",
+          "sha": "fec371a3dcb8868ead88755498b5e195ab1a1d6f",
+          "url": "versionbox/snapshots/bdo-market/fec371a3dcb8/index.html",
+          "date": "2026-11-02T01:56:31-05:00",
+          "message": "Integrate Vision workspace, recipe session economics and guarded tool OCR; polish native layout",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "5e19d885323e",
+          "label": "5e19d885323e",
+          "sha": "5e19d885323e2982961c68bc451fd9516b5db20c",
+          "url": "versionbox/snapshots/bdo-market/5e19d885323e/index.html",
+          "date": "2026-11-01T20:19:04-05:00",
+          "message": "Integrate Fairy Codex V36.1 with opt-in recorded loot and platform release checklist",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "a82fd755e34e",
+          "label": "a82fd755e34e",
+          "sha": "a82fd755e34e3ef16389aa15a40d9bfd273035f9",
+          "url": "versionbox/snapshots/bdo-market/a82fd755e34e/index.html",
+          "date": "2026-11-01T13:14:44-05:00",
+          "message": "Release 1.12.0-rc.9: timed tool confirmation, Place Mode anchor, quest objectives and last-seen planner receipt",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "4573c3ec0d9e",
+          "label": "4573c3ec0d9e",
+          "sha": "4573c3ec0d9e5d19b866484ef23ece0ff07bb059",
+          "url": "versionbox/snapshots/bdo-market/4573c3ec0d9e/index.html",
+          "date": "2026-10-31T02:54:04-04:00",
+          "message": "Ship BDO Vision 1.11.1: leaner grind/craft OCR and bounded local bridge",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "2bed6f3e9e9c",
+          "label": "2bed6f3e9e9c",
+          "sha": "2bed6f3e9e9cb08a49eb2a05f11b5fefd8d29634",
+          "url": "versionbox/snapshots/bdo-market/2bed6f3e9e9c/index.html",
+          "date": "2026-10-30T22:23:08-04:00",
+          "message": "Fix live equipment import titles, framing and untradeable equipment",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "ef658c07d251",
+          "label": "ef658c07d251",
+          "sha": "ef658c07d251f09e3879be84f86be832c7998b36",
+          "url": "versionbox/snapshots/bdo-market/ef658c07d251/index.html",
+          "date": "2026-10-30T22:01:23-04:00",
+          "message": "Add Gear Studio to the full Vision app with market loadouts and local tooltip imports",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
           "id": "bde7747f2a67",
           "label": "bde7747f2a67",
           "sha": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551",
@@ -177,10 +276,10 @@
   ],
   "tracked": {
     "bdo-market": {
-      "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
+      "head": "737c8cc859b7b100dbaf1e0f948add48e4b4332a"
     },
     "bdo-vision": {
-      "head": "bde7747f2a6738d7d87116f6e0e5b6fbb0ea9551"
+      "head": "737c8cc859b7b100dbaf1e0f948add48e4b4332a"
     },
     "fairycodex": {
       "head": "99633c300ea69e06d111fdd54d9b493ab0a01bd2"
