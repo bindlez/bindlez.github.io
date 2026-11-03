@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-03T01:47:16.172926+00:00",
+  "generated_at": "2026-11-03T08:53:55.769251+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -127,6 +127,78 @@
       "description": "Marketplace explorer, alerts and watchlists",
       "repo": "bindlez/bdo-vision",
       "versions": [
+        {
+          "id": "ef99bf119bb4",
+          "label": "ef99bf119bb4",
+          "sha": "ef99bf119bb4ff66018fb75f3a8b6f8e4d655ced",
+          "url": "versionbox/snapshots/bdo-market/ef99bf119bb4/index.html",
+          "date": "2026-11-03T01:54:21-05:00",
+          "message": "Simplify workspace navigation and next-stage cooking layout without removing features",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "3af736af0b42",
+          "label": "3af736af0b42",
+          "sha": "3af736af0b420fe359f07d1dd7c65e33cb3204cf",
+          "url": "versionbox/snapshots/bdo-market/3af736af0b42/index.html",
+          "date": "2026-11-03T01:40:27-05:00",
+          "message": "Add deep cooking execution, donut analysis, teal styling and local grind presentation",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "a49a96315537",
+          "label": "a49a96315537",
+          "sha": "a49a9631553769d7b050879d09a34cf378f7e974",
+          "url": "versionbox/snapshots/bdo-market/a49a96315537/index.html",
+          "date": "2026-11-03T00:14:46-05:00",
+          "message": "Add multilevel cooking and alchemy production workshop with route comparisons and runbooks",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "13d778d75018",
+          "label": "13d778d75018",
+          "sha": "13d778d75018c935e2ed5927217ae93404adb540",
+          "url": "versionbox/snapshots/bdo-market/13d778d75018/index.html",
+          "date": "2026-11-02T23:55:07-05:00",
+          "message": "Add target-first native CP, Imperial and on-demand Workerman payback modeling",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "f535c955ef5a",
+          "label": "f535c955ef5a",
+          "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
+          "url": "versionbox/snapshots/bdo-market/f535c955ef5a/index.html",
+          "date": "2026-11-02T22:42:20-05:00",
+          "message": "Add structured Windows reader route, safe guild reminders and prioritized backlog",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "df03607c9c42",
+          "label": "df03607c9c42",
+          "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
+          "url": "versionbox/snapshots/bdo-market/df03607c9c42/index.html",
+          "date": "2026-11-02T22:42:20-05:00",
+          "message": "Add stock-aware Imperial recommendations, CP daily totals and lazy profit analysis",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "221c453f6f4b",
+          "label": "221c453f6f4b",
+          "sha": "221c453f6f4b4bac21078a177fca280def4421b6",
+          "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
+          "date": "2026-11-02T22:42:19-05:00",
+          "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "54a8b9ff0538",
+          "label": "54a8b9ff0538",
+          "sha": "54a8b9ff053847c7dd9d674c387650078dea12e7",
+          "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
+          "date": "2026-11-02T22:42:19-05:00",
+          "message": "Add lightweight Imperial buy and craft quick picks",
+          "repo": "bindlez/bdo-vision"
+        },
         {
           "id": "85715b48a240",
           "label": "85715b48a240",
@@ -276,10 +348,10 @@
   ],
   "tracked": {
     "bdo-market": {
-      "head": "737c8cc859b7b100dbaf1e0f948add48e4b4332a"
+      "head": "ef99bf119bb4ff66018fb75f3a8b6f8e4d655ced"
     },
     "bdo-vision": {
-      "head": "737c8cc859b7b100dbaf1e0f948add48e4b4332a"
+      "head": "ef99bf119bb4ff66018fb75f3a8b6f8e4d655ced"
     },
     "fairycodex": {
       "head": "99633c300ea69e06d111fdd54d9b493ab0a01bd2"
