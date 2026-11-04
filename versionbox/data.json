@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-03T22:10:47.407203+00:00",
+  "generated_at": "2026-11-04T02:18:40.971276+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -128,6 +128,24 @@
       "repo": "bindlez/bdo-vision",
       "versions": [
         {
+          "id": "9cb87f1de18b",
+          "label": "9cb87f1de18b",
+          "sha": "9cb87f1de18b2dd5e6465c7e64743f15cbbba913",
+          "url": "versionbox/snapshots/bdo-market/9cb87f1de18b/index.html",
+          "date": "2026-11-03T19:45:04-05:00",
+          "message": "Add shared-engine crafting sidecar, verified weight snapshots and compact companion views",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "5c3e8100c0d0",
+          "label": "5c3e8100c0d0",
+          "sha": "5c3e8100c0d03cf9ceb56a01625d358e2fa4b91a",
+          "url": "versionbox/snapshots/bdo-market/5c3e8100c0d0/index.html",
+          "date": "2026-11-03T18:17:14-05:00",
+          "message": "Restore direct crafting access; add passive snapping overlays and recover incomplete loot rows",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
           "id": "623ee5ca8f7f",
           "label": "623ee5ca8f7f",
           "sha": "623ee5ca8f7fbd9d8394389f86d87e4775cdc2a0",
@@ -209,15 +227,6 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "f535c955ef5a",
-          "label": "f535c955ef5a",
-          "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
-          "url": "versionbox/snapshots/bdo-market/f535c955ef5a/index.html",
-          "date": "2026-11-02T22:42:20-05:00",
-          "message": "Add structured Windows reader route, safe guild reminders and prioritized backlog",
-          "repo": "bindlez/bdo-vision"
-        },
-        {
           "id": "df03607c9c42",
           "label": "df03607c9c42",
           "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
@@ -227,12 +236,12 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "221c453f6f4b",
-          "label": "221c453f6f4b",
-          "sha": "221c453f6f4b4bac21078a177fca280def4421b6",
-          "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
-          "date": "2026-11-02T22:42:19-05:00",
-          "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
+          "id": "f535c955ef5a",
+          "label": "f535c955ef5a",
+          "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
+          "url": "versionbox/snapshots/bdo-market/f535c955ef5a/index.html",
+          "date": "2026-11-02T22:42:20-05:00",
+          "message": "Add structured Windows reader route, safe guild reminders and prioritized backlog",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -242,6 +251,15 @@
           "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
           "date": "2026-11-02T22:42:19-05:00",
           "message": "Add lightweight Imperial buy and craft quick picks",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "221c453f6f4b",
+          "label": "221c453f6f4b",
+          "sha": "221c453f6f4b4bac21078a177fca280def4421b6",
+          "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
+          "date": "2026-11-02T22:42:19-05:00",
+          "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -393,10 +411,10 @@
   ],
   "tracked": {
     "bdo-market": {
-      "head": "623ee5ca8f7fbd9d8394389f86d87e4775cdc2a0"
+      "head": "9cb87f1de18b2dd5e6465c7e64743f15cbbba913"
     },
     "bdo-vision": {
-      "head": "623ee5ca8f7fbd9d8394389f86d87e4775cdc2a0"
+      "head": "9cb87f1de18b2dd5e6465c7e64743f15cbbba913"
     },
     "fairycodex": {
       "head": "99633c300ea69e06d111fdd54d9b493ab0a01bd2"
