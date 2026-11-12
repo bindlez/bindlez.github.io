@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-11T22:54:30.724102+00:00",
+  "generated_at": "2026-11-12T03:32:07.166383+00:00",
   "projects": [
     {
       "id": "fairycodex",
@@ -236,15 +236,6 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "df03607c9c42",
-          "label": "df03607c9c42",
-          "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
-          "url": "versionbox/snapshots/bdo-market/df03607c9c42/index.html",
-          "date": "2026-11-02T22:42:20-05:00",
-          "message": "Add stock-aware Imperial recommendations, CP daily totals and lazy profit analysis",
-          "repo": "bindlez/bdo-vision"
-        },
-        {
           "id": "f535c955ef5a",
           "label": "f535c955ef5a",
           "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
@@ -254,12 +245,12 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "54a8b9ff0538",
-          "label": "54a8b9ff0538",
-          "sha": "54a8b9ff053847c7dd9d674c387650078dea12e7",
-          "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
-          "date": "2026-11-02T22:42:19-05:00",
-          "message": "Add lightweight Imperial buy and craft quick picks",
+          "id": "df03607c9c42",
+          "label": "df03607c9c42",
+          "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
+          "url": "versionbox/snapshots/bdo-market/df03607c9c42/index.html",
+          "date": "2026-11-02T22:42:20-05:00",
+          "message": "Add stock-aware Imperial recommendations, CP daily totals and lazy profit analysis",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -269,6 +260,15 @@
           "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
           "date": "2026-11-02T22:42:19-05:00",
           "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "54a8b9ff0538",
+          "label": "54a8b9ff0538",
+          "sha": "54a8b9ff053847c7dd9d674c387650078dea12e7",
+          "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
+          "date": "2026-11-02T22:42:19-05:00",
+          "message": "Add lightweight Imperial buy and craft quick picks",
           "repo": "bindlez/bdo-vision"
         },
         {
