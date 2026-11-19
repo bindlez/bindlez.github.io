@@ -2,6 +2,15 @@
   "schema": 1,
   "projects": [
     {
+      "id": "codefield",
+      "name": "Codefield",
+      "description": "Interactive coding playground and learning workspace",
+      "repo": "bindlez/bindlez.github.io",
+      "branch": "main",
+      "publish_path": "codefield",
+      "version_file": "codefield/VERSION.txt"
+    },
+    {
       "id": "fairycodex",
       "name": "FairyCodex",
       "description": "Fairy odds, Treasure Atlas, Imperial Intelligence and Live Intel market alerts",
