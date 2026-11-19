@@ -9,6 +9,8 @@ import { tokenizeCpp } from '../src/languages/cpp.js';
 import { cppMethods } from './cpp-methods.js';
 import { content } from './content.js';
 import { documentationUrl } from './documentation.js';
+import { methodGuide } from './method-guides.js';
+import { rustProgram } from './rust-snippet.js';
 const $ = selector => document.querySelector(selector);
 const storageKey = 'codefield.workspace.v2';
 let state = {language:'ruby',code:{},history:[],notes:''};
@@ -20,6 +22,21 @@ state.versions=state.versions.slice(0,50);state.code={};
 let editor, worker, timer, ready=false, pending=false, booting=false, currentMethods=[], submittedCode="", completionId=0;
 let selectionId=0, selectedItems=null, selectedReceiver='', selectedType='', selectedOwners={}, selectedIsInferred=false;
 let inferTimer, rustAbort;
+let previewTimer, previewWorker, previewTimeout, explorationKey='';
+const learningPanel=document.createElement('section');
+learningPanel.className='panel learning-panel';
+learningPanel.setAttribute('aria-label','Method learning details');
+learningPanel.innerHTML='<div class="learning-head"><p class="eyebrow">METHOD EXPLORER</p><h2>Learn as you type</h2><p>Highlight a suggestion or select code to explore it.</p></div><div id="parent-path" class="parent-path" aria-label="Expression parents"></div><div id="learning-detail"></div>';
+$('#reference .reference').after(learningPanel);
+$('#learning-detail').append($('#selected-detail'));
+const previewPanel=document.createElement('section');
+previewPanel.className='panel live-preview';
+previewPanel.innerHTML='<div class="panel-bar"><div><span class="section-label">LIVE RESULT</span><p>Fresh browser session · runs after you pause</p></div><label class="preview-toggle"><input id="live-preview-toggle" type="checkbox"> Auto-run</label></div><pre id="live-preview-output" role="status">Enable auto-run to preview your code as you type.</pre><p class="live-note">Runs your whole editor in a separate worker. Code may have side effects; only run code you trust. Ruby and JavaScript only.</p>';
+$('.output-panel').before(previewPanel);
+const wrapLabel=document.createElement('label');wrapLabel.className='rust-wrap-toggle';wrapLabel.innerHTML='<input id="rust-wrap-toggle" type="checkbox" checked> Wrap snippets in fn main()';$('.editor-tools').append(wrapLabel);
+const wrapStart=document.createElement('pre'),wrapEnd=document.createElement('pre');wrapStart.className=wrapEnd.className='rust-wrapper';wrapStart.textContent='fn main() {';wrapEnd.textContent='}';$('#editor').before(wrapStart);$('#editor').after(wrapEnd);
+function refreshRustWrapper(){const rust=state.language==='rust';wrapLabel.hidden=!rust;const wrapped=rust&&editor&&rustProgram(editor.getValue(),$('#rust-wrap-toggle').checked).wrapped;wrapStart.hidden=wrapEnd.hidden=!wrapped}
+$('#rust-wrap-toggle').onchange=refreshRustWrapper;
 const completionRequests = new Map();
 function save(){try{localStorage.setItem(storageKey,JSON.stringify(state));$('#save-status').textContent='Saved locally'}catch{$('#save-status').textContent='Local save unavailable'}}
 function stop(){if(worker)worker.terminate();if(rustAbort)rustAbort.abort();rustAbort=null;worker=null;clearTimeout(timer);clearTimeout(inferTimer);selectionId++;for(const resolve of completionRequests.values())resolve({methods:[],receiverType:null});completionRequests.clear();ready=false;booting=false;pending=false;$('#run').disabled=false}
@@ -41,7 +58,21 @@ async function complete(context){
  const result=await requestMethods({...context,staticType:inferred?.type});
  const parens=['rust','cpp'].includes(state.language);
  const noArgs=new Set(['as_bytes','as_mut_str','as_slice','as_str','back','begin','bytes','c_str','capacity','chars','clear','clone','count','empty','end','enumerate','first','front','is_ascii','is_empty','iter','iter_mut','last','len','length','lines','next','pop','pop_back','reverse','rev','size','sort','to_lowercase','to_owned','to_string','to_uppercase','trim','trim_end','trim_start']);
- return result.methods.filter(visibleMethod).map(label=>({label,display:parens?label+'()':label,insert:parens?label+'()':label,cursorOffset:parens?label.length+(noArgs.has(label)?2:1):undefined,detail:(inferred?.uncertain?'Tentative type · ':'')+(documentationFor(label,result.receiverType)?.description||'method')}));
+ return result.methods.filter(visibleMethod).map(label=>({label,display:parens?label+'()':label,insert:parens?label+'()':label,cursorOffset:parens?label.length+(noArgs.has(label)?2:1):undefined,detail:(inferred?.uncertain?'Tentative type · ':'')+(documentationFor(label,result.receiverType)?.description||'method'),explore:{context,result,inferred,language:state.language}}));
+}
+function renderParents(context){
+ const path=$('#parent-path');path.replaceChildren();if(!context)return;
+ const title=document.createElement('span');title.className='parent-label';title.textContent='EXPRESSION PATH';path.append(title);
+ const parts=[context.receiver,...context.chain];let expression='';
+ parts.forEach((part,index)=>{expression+=index?(part.startsWith('[')?part:'.'+part):part;const current=expression;const type=inferContext(editor.getValue(),editor.getCaret(),state.language,context.receiver,context.chain.slice(0,index));const button=document.createElement('button');button.type='button';button.textContent=part+(type?.type?' · '+type.type:'');button.title='Inspect '+current;button.onclick=()=>inspectSelection(current);path.append(button)});
+}
+function previewCompletion(item){
+ if(!item?.explore||item.explore.language!==state.language)return;
+ clearTimeout(inferTimer);const {context,result,inferred}=item.explore;const key=JSON.stringify([state.language,context.receiver,context.chain,result.receiverType]);
+ selectionId++;selectedIsInferred=false;selectedItems=result.methods;selectedOwners=result.owners||{};selectedType=result.receiverType||inferred?.type||'';
+ selectedReceiver=context.receiver+context.chain.map(step=>step.startsWith('[')?step:'.'+step).join('');
+ if(key!==explorationKey){explorationKey=key;$('#selected-panel').hidden=false;$('#reference-list').hidden=true;$('#selected-expression').textContent=selectedReceiver;$('#selected-message').textContent=`${inferred?.uncertain?'Tentative · ':''}${selectedType} · ${selectedItems.length} methods`;$('#search').value='';renderSelectedMethods();renderParents(context)}
+ showMethodDetail(item.label,documentationFor(item.label,selectedType),false);
 }
 function visibleMethod(name){return $('#show-operators').checked || (/^[A-Za-z]/.test(name) && !name.startsWith('__'))}
 function queueInference(value,caret){
@@ -58,6 +89,7 @@ function queueInference(value,caret){
   const result=await requestMethods({receiver:'',chain:[],staticType:inferred.type});
   if(id!==selectionId || language!==state.language || !result.methods.length)return;
   selectedIsInferred=true;selectedReceiver=inferred.label;selectedItems=result.methods;selectedOwners=result.owners||{};selectedType=result.receiverType||inferred.type;
+  renderParents(selectionContext(inferred.known||''));
   $('#selected-panel').hidden=false;$('#reference-list').hidden=true;$('#selected-expression').textContent=selectedReceiver;
   $('#selected-detail').hidden=true;$('#search').value='';
   $('#selected-message').textContent=`${inferred.uncertain?'Tentative type':'Inferred'}: ${selectedType} · ${selectedItems.length} ${['rust','cpp'].includes(language)?'suggested':'available'} methods. ${inferred.uncertain?'Some earlier code could not be verified.':''}`;
@@ -70,6 +102,7 @@ async function inspectSelection(value,parent=null){
  selectedIsInferred=false;selectedReceiver=parent ? parent.receiver + parent.chain.map(step=>step.startsWith('[')?step:'.'+step).join('') : value.trim();selectedItems=[];selectedType='';
  $('#selected-panel').hidden=false;$('#reference-list').hidden=true;$('#selected-expression').textContent=selectedReceiver;
  if(!context){$('#selected-message').textContent='Select a single variable, string, array, or supported method chain to inspect it.';$('#selected-methods').replaceChildren();$('#selected-detail').hidden=true;return}
+ explorationKey='';renderParents(context);
  $('#selected-message').textContent=ready?'Finding methods…':'Runtime is starting; try selecting the value again.';
  $('#selected-methods').replaceChildren();$('#selected-detail').hidden=true;$('#search').value='';
  if(!ready)return;
@@ -95,13 +128,16 @@ function renderSelectedMethods(){
  const list=$('#selected-methods');list.replaceChildren();const query=$('#search').value.trim().toLowerCase();
  const matches=(selectedItems||[]).filter(name=>name.toLowerCase().includes(query) && (visibleMethod(name)||!!query)).sort((a,b)=>Number(!/^[A-Za-z]/.test(a))-Number(!/^[A-Za-z]/.test(b))||a.localeCompare(b));
  if(!matches.length){const p=document.createElement('p');p.className='selected-empty';p.textContent=query?'No matching methods.':'No methods to show yet.';list.append(p);return}
- for(const name of matches){const button=document.createElement('button');button.type='button';button.className='selected-method';button.textContent=name;const doc=documentationFor(name,selectedType);if(doc){const desc=document.createElement('small');desc.textContent=doc.description;button.append(desc)}button.onclick=()=>showMethodDetail(name,doc);button.onkeydown=event=>{if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const buttons=[...list.querySelectorAll('button')],i=buttons.indexOf(button),next=buttons[(i+(event.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length];next.focus();next.click()}};list.append(button)}
+ for(const name of matches){const button=document.createElement('button');button.type='button';button.className='selected-method';button.dataset.method=name;button.textContent=name;const doc=documentationFor(name,selectedType);if(doc){const desc=document.createElement('small');desc.textContent=doc.description;button.append(desc)}button.onclick=()=>showMethodDetail(name,doc);button.onfocus=()=>showMethodDetail(name,doc,false);button.onkeydown=event=>{if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const buttons=[...list.querySelectorAll('button')],i=buttons.indexOf(button),next=buttons[(i+(event.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length];next.focus()}};list.append(button)}
 }
-function showMethodDetail(name,doc){
+function showMethodDetail(name,doc,scroll=true){
  const detail=$('#selected-detail');detail.replaceChildren();detail.hidden=false;
- const title=document.createElement('strong');title.textContent=doc?.name||name;detail.append(title);
- const text=document.createElement('p');text.textContent=doc?.description||'A short guide for this method is not available yet. Explore the official language reference for full documentation.';detail.append(text);
- if(doc){const example=document.createElement('pre');example.textContent=doc.example;detail.append(example);const button=document.createElement('button');button.className='text-button';button.type='button';button.textContent='Use example';button.onclick=()=>{editor.setValue(doc.insert);state.code[state.language]=doc.insert;save();editor.focus()};detail.append(button)}
+ for(const button of $('#selected-methods').querySelectorAll('button')){const active=button.dataset.method===name;button.classList.toggle('is-active',active);button.setAttribute('aria-pressed',String(active))}
+ const guide=methodGuide(state.language,name,doc);
+ const overview=document.createElement('div');overview.className='learning-card';const caption=document.createElement('span');caption.className='selected-caption';caption.textContent='METHOD';const title=document.createElement('strong');title.textContent=doc?.name||`${selectedType}#${name}`;const text=document.createElement('p');text.textContent=guide.description;overview.append(caption,title,text);detail.append(overview);
+ const examples=document.createElement('div');examples.className='learning-card';const exampleTitle=document.createElement('span');exampleTitle.className='selected-caption';exampleTitle.textContent='EXAMPLES';examples.append(exampleTitle);
+ if(guide.example){const example=document.createElement('pre');example.textContent=guide.example;examples.append(example)}else{const empty=document.createElement('p');empty.textContent='Examples are available in the linked reference when documented by the language.';examples.append(empty)}
+ if(doc){const button=document.createElement('button');button.className='text-button';button.type='button';button.textContent='Use example';button.onclick=()=>{editor.setValue(doc.insert);state.code[state.language]=doc.insert;save();editor.focus()};examples.append(button)}detail.append(examples);
  const url=documentationUrl(state.language,selectedType,name,selectedOwners[name]||doc?.name.split('#')[0]);
  const anchor=document.createElement('a');anchor.textContent='Open full reference ↗';anchor.href=url;anchor.target='_blank';anchor.rel='noopener noreferrer';detail.append(anchor);
  if(['ruby','rust'].includes(state.language)){
@@ -110,7 +146,7 @@ function showMethodDetail(name,doc){
  }
  const methods=(selectedItems||[]).filter(visibleMethod).sort((a,b)=>a.localeCompare(b));const index=methods.indexOf(name);
  if(index>=0){const navigation=document.createElement('div');navigation.className='doc-nav';for(const [label,next] of [['← Previous',methods[index-1]],['Next →',methods[index+1]]]){const button=document.createElement('button');button.className='text-button';button.type='button';button.textContent=label;button.disabled=!next;button.onclick=()=>showMethodDetail(next,documentationFor(next,selectedType));navigation.append(button)}detail.append(navigation)}
- detail.scrollIntoView({block:'nearest'});
+ if(scroll && matchMedia('(max-width: 760px)').matches)detail.scrollIntoView({block:'nearest'});
 }
 function status(text){$('#output-status').textContent='/ '+text}
 function appendEntry(code,result){
@@ -159,7 +195,8 @@ async function runRust(code){
  const controller=new AbortController();rustAbort=controller;
  timer=setTimeout(()=>controller.abort(),30000);
  try{
-  const response=await fetch('https://play.rust-lang.org/execute',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({channel:'stable',mode:'debug',edition:'2021',crateType:'bin',tests:false,code,backtrace:false})});
+  const program=rustProgram(code,$('#rust-wrap-toggle').checked);
+  const response=await fetch('https://play.rust-lang.org/execute',{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({channel:'stable',mode:'debug',edition:'2021',crateType:'bin',tests:false,code:program.code,backtrace:false})});
   if(!response.ok)throw new Error(`Rust service returned HTTP ${response.status}`);
   const data=await response.json();if(rustAbort!==controller)return;
   const result={ok:!!data.success,output:data.stdout||'',stderr:data.stderr||'',value:data.success?'Program finished':'',error:data.success?'':(data.stderr?'Compilation or execution failed.':'Rust service reported a failure.')};
@@ -181,8 +218,29 @@ async function runCpp(code){
  }catch(error){if(rustAbort!==controller)return;status('ERROR');$('#execution-note').textContent=error.name==='AbortError'?'C++ request timed out. Try again.':`Compiler Explorer unavailable: ${error.message}`}
  finally{clearTimeout(timer);if(rustAbort===controller){rustAbort=null;$('#run').disabled=false}}
 }
+function stopLivePreview(){clearTimeout(previewTimer);clearTimeout(previewTimeout);if(previewWorker)previewWorker.terminate();previewWorker=null}
+function queueLivePreview(){
+ stopLivePreview();const output=$('#live-preview-output');
+ if(!$('#live-preview-toggle').checked){output.textContent='Enable auto-run to preview your code as you type.';return}
+ if(!['ruby','javascript'].includes(state.language)){output.textContent='Live preview is available for Ruby and JavaScript. Use Run code for Rust or C++.';return}
+ const language=state.language,code=editor.getValue();output.textContent='Waiting for you to pause…';
+ previewTimer=setTimeout(()=>{
+  output.textContent=language==='ruby'?'Starting a fresh Ruby preview…':'Running preview…';
+  let w;try{w=new Worker(language==='ruby'?'./ruby-worker.js':'./javascript-worker.js',{type:'module'});previewWorker=w}catch(error){output.textContent='Could not start preview: '+error.message;return}
+  const expire=()=>{if(previewWorker===w){w.terminate();previewWorker=null;output.textContent='Preview timed out.'}};
+  previewTimeout=setTimeout(expire,60000);
+  w.onmessage=event=>{if(previewWorker!==w)return;const message=event.data;
+   if(message.type==='ready'){clearTimeout(previewTimeout);previewTimeout=setTimeout(expire,5000);w.postMessage({type:'run',code});return}
+   if(message.type==='result'){clearTimeout(previewTimeout);const r=message.result;output.textContent=[r.output,r.stderr,r.ok?'⇒ '+r.value:r.error].filter(Boolean).join('\n');w.terminate();previewWorker=null}
+   if(message.type==='failure'){clearTimeout(previewTimeout);output.textContent='Preview error: '+message.error;w.terminate();previewWorker=null}
+  };
+  w.onerror=()=>{if(previewWorker===w){stopLivePreview();output.textContent='Could not load the preview runtime.'}};
+  if(language==='ruby')w.postMessage({type:'init'});
+ },900);
+}
+$('#live-preview-toggle').onchange=queueLivePreview;
 function execute(){if($('#run').disabled)return;if(!ready){pending=true;ensureWorker();return}pending=false;$('#run').disabled=true;status('RUNNING');const code=editor.getValue();submittedCode=code;if(state.language==='rust'){runRust(code);return}if(state.language==='cpp'){runCpp(code);return}worker.postMessage({type:'run',code});timer=setTimeout(()=>{stop();status('TIMEOUT');$('#execution-note').textContent='Execution stopped after 10 seconds. The session was reset.'},10000)}
-function selectLanguage(language){stop();selectedItems=null;$('#selected-panel').hidden=true;$('#reference-list').hidden=false;state.language=language;const data=content[language];if(editor)editor.destroy();editor=createEditor('#editor',{value:typeof state.code[language]==='string'?state.code[language]:data.starter,label:`${language} code editor`,tokenize:language==='ruby'?tokenizeRuby:language==='rust'?tokenizeRust:language==='cpp'?tokenizeCpp:tokenizeJavaScript,complete,onSelection:inspectSelection,autoIndent:true,onChange:(value,info)=>{state.code[state.language]=value;save();queueInference(value,info.caret)}});$('#language').value=language;$('#file-name').textContent=data.filename;$('#editor-hint').textContent=language==='ruby'?'Ruby · persistent session':language==='rust'?'Rust · run sends code to Rust Playground':language==='cpp'?'C++ · run sends code to Compiler Explorer':'JavaScript · persistent worker';$('#challenge-title').textContent=data.exercise.title;$('#challenge-text').textContent=data.exercise.text;$('#hint-text').textContent=data.exercise.hint;$('#hint-text').hidden=true;$('#hint').textContent='Show hint';$('#search').value='';$('#inspection').hidden=true;$('#output').replaceChildren();for(const item of state.history.filter(h=>h.language===language))appendEntry(item.code,item.result);showReference();save();ensureWorker()}
+function selectLanguage(language){stop();stopLivePreview();explorationKey='';selectedItems=null;$('#selected-panel').hidden=true;$('#reference-list').hidden=false;$('#selected-detail').hidden=true;$('#parent-path').replaceChildren();state.language=language;const data=content[language];if(editor)editor.destroy();editor=createEditor('#editor',{value:typeof state.code[language]==='string'?state.code[language]:data.starter,label:`${language} code editor`,tokenize:language==='ruby'?tokenizeRuby:language==='rust'?tokenizeRust:language==='cpp'?tokenizeCpp:tokenizeJavaScript,complete,onCompletionHighlight:previewCompletion,onSelection:inspectSelection,onSetValue:()=>{refreshRustWrapper();queueLivePreview()},autoIndent:true,onChange:(value,info)=>{state.code[state.language]=value;save();refreshRustWrapper();queueInference(value,info.caret);queueLivePreview()}});refreshRustWrapper();$('#language').value=language;$('#file-name').textContent=data.filename;$('#editor-hint').textContent=language==='ruby'?'Ruby · persistent session':language==='rust'?'Rust · run sends code to Rust Playground':language==='cpp'?'C++ · run sends code to Compiler Explorer':'JavaScript · persistent worker';$('#challenge-title').textContent=data.exercise.title;$('#challenge-text').textContent=data.exercise.text;$('#hint-text').textContent=data.exercise.hint;$('#hint-text').hidden=true;$('#hint').textContent='Show hint';$('#search').value='';$('#inspection').hidden=true;$('#output').replaceChildren();for(const item of state.history.filter(h=>h.language===language))appendEntry(item.code,item.result);showReference();save();ensureWorker();queueLivePreview()}
 $('#language').onchange=e=>selectLanguage(e.target.value);$('#search').oninput=showReference;$('#method-search').oninput=renderMethods;
 $('#selected-clear').onclick=()=>{selectionId++;selectedItems=null;$('#selected-panel').hidden=true;$('#reference-list').hidden=false;$('#search').value='';showReference()};
 $('#starter').onclick=()=>{const text=content[state.language].exercise.starter;editor.setValue(text);state.code[state.language]=text;save();editor.focus()};

@@ -9,7 +9,7 @@ export const content = {
     ]
   },
   rust: {
-    filename:'playground.rs', starter:'fn main() {\n    let greeting = "Hello, Rust!";\n    println!("{}", greeting);\n}',
+    filename:'playground.rs', starter:'let greeting = "Hello, Rust!";\nprintln!("{}", greeting);',
     exercise:{title:'Explore a string',text:'Create a greeting and print its length.',starter:'fn main() {\n    let greeting = "hello";\n    // Print the length of greeting\n}',hint:'Try greeting.len() inside println!.'},
     docs:[
       {name:'str#len',description:'Returns the length of the string slice in bytes.',example:'let word = "hello";\nprintln!("{}", word.len()); // 5',insert:'fn main() {\n    let word = "hello";\n    println!("{}", word.len());\n}'},

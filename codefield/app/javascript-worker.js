@@ -21,7 +21,7 @@ self.onmessage = event => {
   }
   const lines=[];
   const format = v => {if(typeof v==='string') return v;if(v===undefined)return 'undefined';try{return JSON.stringify(v,null,2) ?? String(v)}catch{return String(v)}};
-  const old=console.log; console.log=(...args)=>lines.push(args.map(format).join(' '));
+  const old=console.log; console.log=(...args)=>{lines.push(args.map(format).join(' '));};
   try { const value=(0,eval)(event.data.code); self.postMessage({type:'result',result:{ok:true,value:format(value),type:value===null?'null':typeof value,output:lines.join('\n'),methods:value == null?[]:Object.getOwnPropertyNames(Object.getPrototypeOf(value)).sort()}}); }
   catch(error){self.postMessage({type:'result',result:{ok:false,error:`${error.name}: ${error.message}`,output:lines.join('\n')}})} finally {console.log=old}
 };

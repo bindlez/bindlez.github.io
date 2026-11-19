@@ -68,6 +68,7 @@ export function createEditor(target, options = {}) {
     const selected = completion.children[completionIndex];
     if (selected.offsetTop < completion.scrollTop) completion.scrollTop = selected.offsetTop;
     else if (selected.offsetTop + selected.offsetHeight > completion.scrollTop + completion.clientHeight) completion.scrollTop = selected.offsetTop + selected.offsetHeight - completion.clientHeight;
+    options.onCompletionHighlight?.(completionItems[completionIndex]);
   };
   const acceptCompletion = () => {
     const item = completionItems[completionIndex];
@@ -185,7 +186,7 @@ export function createEditor(target, options = {}) {
   return {
     getValue: () => input.value,
     getCaret: () => input.selectionStart,
-    setValue(value) { closeCompletion(); input.value = String(value); render(); },
+    setValue(value) { closeCompletion(); input.value = String(value); render(); options.onSetValue?.(input.value); },
     focus: () => input.focus(),
     find(text, backwards = false) {
       if (!text) return false;
