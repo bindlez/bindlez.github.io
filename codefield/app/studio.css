@@ -2,3 +2,4 @@
 .studio{min-width:0;width:100%;overflow:hidden}.studio-tabs{max-width:100%}.side-column .reference{position:static}
 
 #ai-studio h3{margin-top:1.8rem}#set-preview pre,#tutor-answer{white-space:pre-wrap;overflow-wrap:anywhere}#ai-studio [hidden]{display:none}#ai-studio details{margin:.8rem 0}#ai-studio summary{cursor:pointer}
+#drill-log{white-space:pre-wrap;overflow-wrap:anywhere;max-height:28rem;overflow:auto}
