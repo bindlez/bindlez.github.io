@@ -1,5 +1,7 @@
 // Official references are loaded only when a learner requests a method.
 export function documentationUrl(language, type, method, owner) {
+  if (language === 'python') return 'https://docs.python.org/3/';
+  if (language === 'csharp') return 'https://learn.microsoft.com/en-us/dotnet/csharp/';
   if (language === 'ruby') {
     const klass = /^[A-Z]\w*(?:::[A-Z]\w*)*$/.test(owner || type || '') ? (owner || type).replaceAll('::', '/') : null;
     if (!klass) return 'https://docs.ruby-lang.org/en/4.0/';
