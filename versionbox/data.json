@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-20T01:15:56.216497+00:00",
+  "generated_at": "2026-11-20T01:26:00.016632+00:00",
   "projects": [
     {
       "id": "codefield",
@@ -8,6 +8,15 @@
       "description": "Interactive coding playground and learning workspace",
       "repo": "bindlez/bindlez.github.io",
       "versions": [
+        {
+          "id": "e77a0977ce50",
+          "label": "0.4.0-alpha",
+          "sha": "e77a0977ce50072a0d2d5eac1b20cc95ca6d564f",
+          "url": "versionbox/snapshots/codefield/e77a0977ce50/index.html",
+          "date": "2026-11-19T20:26:07-05:00",
+          "message": "Polish saved practice problem management",
+          "repo": "bindlez/bindlez.github.io"
+        },
         {
           "id": "2bf21017129f",
           "label": "0.4.0-alpha",
@@ -280,15 +289,6 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "f535c955ef5a",
-          "label": "f535c955ef5a",
-          "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
-          "url": "versionbox/snapshots/bdo-market/f535c955ef5a/index.html",
-          "date": "2026-11-02T22:42:20-05:00",
-          "message": "Add structured Windows reader route, safe guild reminders and prioritized backlog",
-          "repo": "bindlez/bdo-vision"
-        },
-        {
           "id": "df03607c9c42",
           "label": "df03607c9c42",
           "sha": "df03607c9c42ddbf4aaa31fbde4b55773112d052",
@@ -298,12 +298,12 @@
           "repo": "bindlez/bdo-vision"
         },
         {
-          "id": "221c453f6f4b",
-          "label": "221c453f6f4b",
-          "sha": "221c453f6f4b4bac21078a177fca280def4421b6",
-          "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
-          "date": "2026-11-02T22:42:19-05:00",
-          "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
+          "id": "f535c955ef5a",
+          "label": "f535c955ef5a",
+          "sha": "f535c955ef5a1053598f6aab4122e162619a19c5",
+          "url": "versionbox/snapshots/bdo-market/f535c955ef5a/index.html",
+          "date": "2026-11-02T22:42:20-05:00",
+          "message": "Add structured Windows reader route, safe guild reminders and prioritized backlog",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -313,6 +313,15 @@
           "url": "versionbox/snapshots/bdo-market/54a8b9ff0538/index.html",
           "date": "2026-11-02T22:42:19-05:00",
           "message": "Add lightweight Imperial buy and craft quick picks",
+          "repo": "bindlez/bdo-vision"
+        },
+        {
+          "id": "221c453f6f4b",
+          "label": "221c453f6f4b",
+          "sha": "221c453f6f4b4bac21078a177fca280def4421b6",
+          "url": "versionbox/snapshots/bdo-market/221c453f6f4b/index.html",
+          "date": "2026-11-02T22:42:19-05:00",
+          "message": "Simplify Imperial delivery to mastery and side-by-side profit rankings",
           "repo": "bindlez/bdo-vision"
         },
         {
@@ -473,7 +482,7 @@
       "head": "99633c300ea69e06d111fdd54d9b493ab0a01bd2"
     },
     "codefield": {
-      "head": "2bf21017129ffd5045ea811514f33090fd7d4270"
+      "head": "e77a0977ce50072a0d2d5eac1b20cc95ca6d564f"
     }
   }
 }
