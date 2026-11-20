@@ -88,7 +88,7 @@ export function createEditor(target, options = {}) {
     clearTimeout(completionTimer);
     completionTimer = setTimeout(async () => {
       try {
-        const items = await options.complete({receiver, chain, prefix});
+        const items = await options.complete(context);
         if (request !== completionRequest || input.selectionStart !== caret || document.activeElement !== input) return;
         completionItems = (items || []).filter(item => item.label.startsWith(prefix)).map(item => ({...item, from:caret-prefix.length}));
         if (!completionItems.length) { closeCompletion(); return; }

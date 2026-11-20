@@ -12,7 +12,7 @@ require 'stringio'
 $codefield_binding = TOPLEVEL_BINDING
 
 def __codefield_type_methods(type)
-  klass = { 'String'=>String, 'Array'=>Array, 'Hash'=>Hash }[type]
+  klass = { 'String'=>String, 'Array'=>Array, 'Hash'=>Hash, 'Enumerator'=>Enumerator, 'Integer'=>Integer, 'Float'=>Float }[type]
   return [].to_json unless klass
   methods = klass.public_instance_methods
   owners = methods.to_h { |name| [name.to_s, klass.instance_method(name).owner.name] }

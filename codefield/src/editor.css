@@ -10,6 +10,12 @@
 .code-token-string { color: #a7d9a4; }
 .code-token-number, .code-token-symbol { color: #f4c481; }
 .code-token-comment { color: #91a2b9; }
+.code-token-method-string { color:#75d8c1; }
+.code-token-method-array { color:#8cb9ff; }
+.code-token-method-hash { color:#e9a4e8; }
+.code-token-method-integer { color:#f4c481; }
+.code-token-method-enumerator { color:#d1b4ff; }
+.code-token-method-generic { color:#c6cde0; }
 @media (forced-colors: active) { .code-editor--highlighted .code-input { color: CanvasText; } .code-highlight { display: none; } }
 .code-completions { position:absolute; z-index:3; left:1rem; top:3.2rem; width:min(31rem,calc(100% - 2rem)); max-height:13rem; overflow:auto; padding:.3rem; background:#1b2433; border:1px solid #536177; border-radius:.5rem; box-shadow:0 .7rem 1.5rem #0008; }
 .code-completions[hidden] { display:none; }
