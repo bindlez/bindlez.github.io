@@ -185,6 +185,7 @@ export function createEditor(target, options = {}) {
   render();
   return {
     getValue: () => input.value,
+    getSelection: () => input.value.slice(input.selectionStart,input.selectionEnd),
     getCaret: () => input.selectionStart,
     setValue(value) { closeCompletion(); input.value = String(value); render(); options.onSetValue?.(input.value); },
     focus: () => input.focus(),

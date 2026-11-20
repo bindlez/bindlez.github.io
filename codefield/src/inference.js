@@ -27,7 +27,7 @@ export function inferExpression(expression,vars=new Map(),language='ruby'){
   const index=tail.match(/^\[-?\d+\]/);
   if(index){cursor+=index[0].length;if(type==='Array'&&element){type=element;element=null;uncertain=true;consumed=base.length+cursor;continue}uncertain=true;unknown=true;break}
   const match=tail.match(step);if(!match){uncertain=true;unknown=true;break}
-  if(type==='Array' && element && (match[1]==='first'||match[1]==='last') && !match[0].includes('(')){
+  if(type==='Array' && element && (match[1]==='first'||match[1]==='last') && (!match[0].includes('(')||/\(\s*\)$/.test(match[0]))){
    type=element;element=null;uncertain=true;cursor+=match[0].length;consumed=base.length+cursor;continue;
   }
   const next=tables[language]?.[type]?.[match[1]];
