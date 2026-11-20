@@ -1,0 +1,32 @@
+.code-editor { position: relative; height: 18rem; border: 1px solid #38465d; border-radius: .5rem; background: #111827; overflow: hidden; }
+.code-editor:focus-within { outline: 2px solid #7aa2ff; outline-offset: 2px; }
+.code-input, .code-highlight { box-sizing: border-box; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 1rem; border: 0; font: 1rem/1.6 ui-monospace, monospace; letter-spacing: normal; tab-size: 2; white-space: pre; overflow: auto; }
+.code-input { display: block; resize: none; color: #e5ecf8; background: transparent; outline: none; }
+.code-highlight { color: #e5ecf8; pointer-events: none; scrollbar-width: none; }
+.code-highlight::-webkit-scrollbar { display: none; }
+.code-editor--highlighted .code-input { color: transparent; caret-color: #fff; }
+.code-input::selection { background: #45649a99; }
+.code-token-keyword { color: #c7a4ff; }
+.code-token-string { color: #a7d9a4; }
+.code-token-number, .code-token-symbol { color: #f4c481; }
+.code-token-comment { color: #91a2b9; }
+.code-token-method-string { color:#75d8c1; }
+.code-token-method-array { color:#8cb9ff; }
+.code-token-method-hash { color:#e9a4e8; }
+.code-token-method-integer { color:#f4c481; }
+.code-token-method-enumerator { color:#d1b4ff; }
+.code-token-method-generic { color:#c6cde0; }
+@media (forced-colors: active) { .code-editor--highlighted .code-input { color: CanvasText; } .code-highlight { display: none; } }
+.code-completions { position:absolute; z-index:3; left:1rem; top:3.2rem; width:min(31rem,calc(100% - 2rem)); max-height:13rem; overflow:auto; padding:.3rem; background:#1b2433; border:1px solid #536177; border-radius:.5rem; box-shadow:0 .7rem 1.5rem #0008; }
+.code-completions[hidden] { display:none; }
+.code-completion { display:flex; align-items:baseline; gap:1rem; padding:.35rem .5rem; border-radius:.25rem; color:#e6eaf4; font: .85rem/1.4 ui-monospace,monospace; cursor:pointer; }
+.code-completion.selected { background:#414069; }
+.code-completion span { flex:none; color:#cbbaff; }
+.code-completion small { color:#afbdd0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font: .75rem/1.4 system-ui,sans-serif; }
+@media (forced-colors: active) { .code-completions { background:Canvas; color:CanvasText; border:1px solid CanvasText; } .code-completion.selected { forced-color-adjust:none; background:Highlight; color:HighlightText; } .code-completion span, .code-completion small { color:inherit; } }
+.code-gutter {position:absolute;inset:0 auto 0 0;z-index:1;box-sizing:border-box;width:3.5rem;height:100%;margin:0;padding:1rem .7rem 1rem 0;overflow:hidden;text-align:right;color:#697992;background:#151c29;border-right:1px solid #283244;font:1rem/1.6 ui-monospace,monospace;white-space:pre;pointer-events:none;}
+.code-editor .code-input,.code-editor .code-highlight {padding-left:4.5rem;}
+.code-editor .code-completions {left:4.5rem;width:min(31rem,calc(100% - 5rem));}
+.code-editor{resize:vertical;min-height:12rem;max-height:70vh}
+/* Suggestions occupy their own row instead of covering the code. */
+.code-completions{position:relative;left:auto;top:auto;width:auto;max-height:12rem;margin:0;border-radius:0;border-width:1px 0 0;box-shadow:none;background:#1b2433;}
